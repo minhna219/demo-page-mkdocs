@@ -1,0 +1,123 @@
+site_name: Demo page mkdocs
+site_description: Demo page mkdocs
+site_author: Minh Nguyen
+
+theme:
+  name: material
+  language: vi
+  features:
+    - navigation.tabs # Enable top navigation tabs
+    - navigation.top # Enable top navigation bar
+    - navigation.sections # Enable section navigation
+    - navigation.expand # Expand navigation by default
+    - navigation.instant # Instant loading of pages
+    - header.autohide # Auto-hide header on scroll
+    - footer.social # Enable social links in footer
+    - content.tabs # Enable content tabs support
+    - search.highlight # Highlight search terms in results
+    - search.suggest # Suggest search terms
+    - toc.integrate # Integrate table of contents in sidebar
+    - content.code.annotate # Annotate code blocks
+    - content.code.copy # Enable copy button for code blocks
+    - content.code.expand # Enable expandable code blocks
+    - content.tabs.link # Link content tabs to URL
+    - palette.toggle # Enable palette toggle
+    - palette.switcher # Enable palette switcher
+
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Chuyển sang chế độ tối
+    
+    # Dark mode  
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Chuyển sang chế độ sáng
+
+  # Custom fonts for better readability
+  font:
+    text: Roboto
+    code: Roboto Mono
+  
+  # Favicon and logo
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/book-open-variant
+
+# Enhanced search with Vietnamese support
+plugins:
+  - search:
+      lang:
+        - vi
+        - en
+      separator: '[\s\-\.]+'
+
+markdown_extensions:
+  # Essentials
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+
+extra_css:
+  - stylesheets/extra.css
+
+# Navigation structure
+nav:
+  - 🏠 Trang chủ: index.md
+
+  - "🚀 AWS":
+    - Networking: aws/networking/vpc.md
+    - Compute: aws/compute/ec2.md
+
+  - "🌐 GCP":
+    - Networking: gcp/networking/vpc.md
+    - Compute Engine: gcp/compute/compute-engine.md
